@@ -1,22 +1,25 @@
-#include "main.h"
+#include <stdio.h>
 /**
- * jack_bauer - main thing
+ * main - entry point
  *
- */
-void jack_bauer(void)
+ * Return: alway returns 0
+*/
+int main(void)
 {
+	unsigned char a = '0';
 	int i;
-	int j;
 
-	for (i = 0; i <= 23; i++)
+	for (i = 0; i < 10; i++)
 	{
-		for (j = 0; j <= 59; j++)
-		{
-			_putchar(i / 10 + '0');
-			_putchar(i % 10 + '0');
-			_putchar(':');
-			_putchar(j / 10 + '0');
-			_putchar(j % 10 + '0');
-			_putchar('\n');
-		}
+		putchar(a);
+		a++;
 	}
+	a = '1';
+	for (i = 0; i < 6; i++)
+	{
+		putchar('0' + a);
+		a++;
+	}
+	putchar('\n');
+	return (0);
+}
