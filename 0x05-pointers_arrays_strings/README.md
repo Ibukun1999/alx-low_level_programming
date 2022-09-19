@@ -1,1 +1,1 @@
-Learning Pointers, arrays and strings in C
+my first readme
