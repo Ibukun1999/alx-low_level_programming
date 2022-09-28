@@ -1,19 +1,39 @@
 #include "main.h"
-
 /**
- * print_chessboard - prints the chessboard
- * @a: two dimension array to print
+ * _strlen_recursion - function that return the length of a string
+ * @s: the string
+ * Return: length of s
  */
-void print_chessboard(char (*a)[8])
+int _strlen_recursion(char *s)
 {
-	int i, j;
+	if (*s == '\0')
+		return (0);
+	else
+		return (1 + _strlen_recursion(s + 1));
+}
+/**
+ * palcheck - checker
+ * @x: iterration
+ * @y: length of s
+ * @s: string
+ * Return: 1 or 0
+ */
+int palcheck(int x, int y, char *s)
+{
+	if (x >= y)
+		return (1);
+	if (*(s + x) != *(s + y - x))
+		return (0);
+	return (palcheck(x + 1, y, s));
+}
+/**
+ * is_palindrome - check if a string is a palindrome
+ * @s: string
+ * Return: 1 if s is a palindrome otherwise 0
+ */
+int is_palindrome(char *s)
+{
+	int i = _strlen_recursion(s);
 
-	for (i = 0; i < 8; i++)
-	{
-		for (j = 0; j < 8; j++)
-		{
-			_putchar(a[i][j]);
-		}
-		_putchar('\n');
-	}
+	return (palcheck(0, i - 1, s));
 }
